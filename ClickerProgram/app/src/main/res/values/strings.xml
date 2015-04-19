@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ClickerProgram</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="click_singular">Click</string>
+    <string name="click_plural">Clicks</string>
+    <string name="increment">Add One</string>
+    <string name="reset">Reset</string>
+
+</resources>
