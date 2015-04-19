@@ -1,0 +1,71 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:id="@+id/MainLayout">
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/TermField"
+        android:layout_gravity="center_horizontal"
+        android:hint="Term..." />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/DefinitionField"
+        android:layout_gravity="center_horizontal"
+        android:hint="Definition" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Term"
+            android:id="@+id/AddTermButton"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:onClick="addOnClick" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Find Term"
+            android:id="@+id/FindTermButton"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:onClick="findOnClick" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete Term"
+            android:id="@+id/DeleteTermButton"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:onClick="deleteOnClick" />
+
+    </RelativeLayout >
+    <ScrollView
+        android:id="@+id/SCROLLER_ID"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:fillViewport="true">
+
+        <TextView
+            android:id="@+id/TermTextView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.0"
+            android:background="#FF6600"
+            android:text="@string/testing_string"
+            />
+
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">WebsiteChecker</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="button_text">Analyze</string>
+    <string name="enter_url_text">Please Enter A Url...</string>
+</resources>

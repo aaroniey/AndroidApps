@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PausableThread</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="Toggle_Button_Text">Run/Pause</string>
+    <string name="Count_Str">Count: </string>
+
+</resources>

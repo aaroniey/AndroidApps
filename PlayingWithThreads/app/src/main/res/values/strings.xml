@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PlayingWithThreads</string>
+    <string name="already_running">The estimation is already running, please wait until if completes!</string>
+    <string name="to_large">Number of test cases is at max value!</string>
+    <string name="to_small">Number of test cases cannot be less than zero!</string>
+    <string name="zero_estimation_run">Cannot run estimation with zero test cases!</string>
+    <string name="add_text">+10000</string>
+    <string name="sub_text">-10000</string>
+    <string name="run_text">Run Tests</string>
+    <string name="current_test_number">Number of tests to be ran: </string>
+    <string name="action_settings">Search</string>
+
+</resources>
