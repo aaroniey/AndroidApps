@@ -4,5 +4,8 @@
     <string name="app_name">TermProject</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="portrait_string">portrait mode</string>
+    <string name="landscape_string">landscape mode</string>
+    <string name="SwatchPlaceholder" />
 
 </resources>

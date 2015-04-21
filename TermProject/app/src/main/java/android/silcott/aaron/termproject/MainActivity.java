@@ -1,65 +1,162 @@
 package android.silcott.aaron.termproject;
 
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBarActivity;
-import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
+
+    private int hueSwatchCount;
+    private int saturationCount;
+    private int valueCount;
+    private float startHue;
+    private float endHue;
+    private float valuePercent;
+    private float valueDelta;
+    private float saturationPercent;
+    private float saturationDelta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if (savedInstanceState == null) {
-            Fragment frag = new ListViewFragment();
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.listView, frag)
-                    .commit();
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        if(savedInstanceState != null){
+            Fragment f = getFragmentManager().findFragmentById(R.id.fragment_view);
+            hueSwatchCount = savedInstanceState.getInt("hueSwatchCount", hueSwatchCount);
+            startHue = savedInstanceState.getFloat("startHue", startHue);
+            endHue = savedInstanceState.getFloat("endHue", endHue);
+            valuePercent = savedInstanceState.getFloat("valuePercent", valuePercent);
+            saturationPercent = savedInstanceState.getFloat("saturationPercent", saturationPercent);
+            valueDelta = savedInstanceState.getFloat("valueDelta", valueDelta);
+            saturationDelta = savedInstanceState.getFloat("saturationDelta", saturationDelta);
+            valueCount = savedInstanceState.getInt("valueCount", valueCount);
+            saturationCount = savedInstanceState.getInt("saturationCount", saturationCount);
+
+            //logic to fill in
+            if((startHue == -1 || endHue == -1)){
+                startHue = endHue = -1;
+                if(f == null){
+                    HueFragment hueFragment = new HueFragment();
+                    Bundle args = new Bundle();
+                    args.putInt("hueSwatchCount", hueSwatchCount);
+                    hueFragment.setArguments(args);
+                    fragmentTransaction.add(R.id.fragment_view,hueFragment).commit();
+                }else{
+                    HueFragment hueFragment = new HueFragment();
+                    Bundle args = new Bundle();
+                    args.putInt("hueSwatchCount", hueSwatchCount);
+                    hueFragment.setArguments(args);
+                    fragmentTransaction.replace(R.id.fragment_view,hueFragment).commit();
+                }
+            }
+            else if(saturationPercent == -1){
+                if(f == null){
+                    SaturationFragment saturationFragment = new SaturationFragment();
+                    Bundle args = new Bundle();
+                    args.putFloat("startHue", startHue);
+                    args.putFloat("endHue", endHue);
+                    args.putInt("saturationCount", saturationCount);
+                    saturationFragment.setArguments(args);
+                    fragmentTransaction.add(R.id.fragment_view,saturationFragment).commit();
+                }else{
+                    SaturationFragment saturationFragment = new SaturationFragment();
+                    Bundle args = new Bundle();
+                    args.putFloat("startHue", startHue);
+                    args.putFloat("endHue", endHue);
+                    args.putInt("saturationCount", saturationCount);
+                    saturationFragment.setArguments(args);
+                    fragmentTransaction.replace(R.id.fragment_view,saturationFragment).commit();
+                }
+            }
+            else if(valuePercent == -1){
+                if(f == null){
+                    ValueFragment valueFragment = new ValueFragment();
+                    Bundle args = new Bundle();
+                    args.putFloat("startHue", startHue);
+                    args.putFloat("endHue", endHue);
+                    args.putFloat("saturationPercent", saturationPercent);
+                    args.putInt("valueCount", valueCount);
+                    valueFragment.setArguments(args);
+                    fragmentTransaction.add(R.id.fragment_view,valueFragment).commit();
+                }else {
+                    ValueFragment valueFragment = new ValueFragment();
+                    Bundle args = new Bundle();
+                    args.putFloat("startHue", startHue);
+                    args.putFloat("endHue", endHue);
+                    args.putFloat("saturationPercent", saturationPercent);
+                    args.putInt("valueCount", valueCount);
+                    valueFragment.setArguments(args);
+                    fragmentTransaction.replace(R.id.fragment_view, valueFragment).commit();
+                }
+            }
+            else{
+                //run the results fragment
+            }
+            /*
+            if(f == null){
+                HueFragment hueFragment = new HueFragment();
+                Bundle args = new Bundle();
+                args.putInt("hueSwatchCount", hueSwatchCount);
+                hueFragment.setArguments(args);
+                fragmentTransaction.add(R.id.fragment_view,hueFragment).commit();
+            }else{
+                HueFragment hueFragment = new HueFragment();
+                Bundle args = new Bundle();
+                args.putInt("hueSwatchCount", hueSwatchCount);
+                hueFragment.setArguments(args);
+                fragmentTransaction.replace(R.id.fragment_view,hueFragment).commit();
+            }*/
+
+        } else {
+            startHue = -1;
+            endHue = -1;
+            valuePercent = -1;
+            saturationPercent = -1;
+            hueSwatchCount = 36;
+            saturationCount = 10;
+            valueCount = 10;
+            valueDelta = .10f;
+            saturationDelta = .10f;
+            HueFragment hueFragment = new HueFragment();
+            Bundle args = new Bundle();
+            args.putInt("hueSwatchCount", hueSwatchCount);
+            hueFragment.setArguments(args);
+            fragmentTransaction.add(R.id.fragment_view,hueFragment).commit();
         }
+
+        /*HueFragment hueFragment = new HueFragment();
+        Bundle args = new Bundle();
+        args.putLong("key", value);
+        yourFragment.setArguments(args);
+        fragmentTransaction.add(R.id.fragment_view,hueFragment).commit();*/
     }
 
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        // Save the user's current game state
+        savedInstanceState.putInt("hueSwatchCount", hueSwatchCount);
+        savedInstanceState.putFloat("startHue", startHue);
+        savedInstanceState.putFloat("endHue", endHue);
+        savedInstanceState.putFloat("valuePercent", valuePercent);
+        savedInstanceState.putFloat("saturationPercent", saturationPercent);
+        savedInstanceState.putFloat("valueDelta", valueDelta);
+        savedInstanceState.putFloat("saturationDelta", saturationDelta);
+        savedInstanceState.putInt("saturationCount", saturationCount);
+        savedInstanceState.putInt("valueCount", valueCount);
+
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(savedInstanceState);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.list_view_item_layout, container, false);
-            return rootView;
-        }
     }
 }
