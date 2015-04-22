@@ -159,4 +159,15 @@ public class MainActivity extends Activity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+    public void giveHue(float f, float e){
+        startHue = f;
+        endHue = e;
+    }
+    public void giveSat(float f){
+        saturationPercent= f;
+    }
+    public void giveVal(float f){
+        valuePercent= f;
+    }
+
 }

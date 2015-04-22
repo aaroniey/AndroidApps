@@ -38,5 +38,7 @@ public class HueFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         Toast.makeText(getActivity(), Float.toString(arr.get(position).START_HUE) +" " + Float.toString(arr.get(position).END_HUE), Toast.LENGTH_SHORT).show();
+        ((MainActivity)getActivity()).giveHue(arr.get(position).START_HUE, arr.get(position).END_HUE);
+
     }
 }

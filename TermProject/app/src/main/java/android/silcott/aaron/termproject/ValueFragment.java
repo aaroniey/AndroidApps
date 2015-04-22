@@ -54,5 +54,6 @@ public class ValueFragment extends ListFragment {
             Float.toString(arr.get(position).END_HUE) + " " +
             Float.toString(arr.get(position).SATURATION_PERCENT) + " " +
             Float.toString(arr.get(position).VALUE_PERCENT), Toast.LENGTH_SHORT).show();
+            ((MainActivity)getActivity()).giveVal(arr.get(position).VALUE_PERCENT);
     }
 }

@@ -48,5 +48,6 @@ public class SaturationFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         Toast.makeText(getActivity(), Float.toString(arr.get(position).START_HUE) +" " + Float.toString(arr.get(position).END_HUE) + " " + Float.toString(arr.get(position).SATURATION_PERCENT), Toast.LENGTH_SHORT).show();
+        ((MainActivity)getActivity()).giveSat(arr.get(position).SATURATION_PERCENT);
     }
 }
