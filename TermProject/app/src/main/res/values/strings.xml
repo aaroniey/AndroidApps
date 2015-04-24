@@ -7,5 +7,15 @@
     <string name="portrait_string">portrait mode</string>
     <string name="landscape_string">landscape mode</string>
     <string name="SwatchPlaceholder" />
+    <string name="Results_Button_Text">Reset</string>
+    <string name="Sort_Options_String">Sort options</string>
+    <string name="Empty_List">No Colors to Select</string>
+    <string name="Swatch_Selection_Button_Text">Configure color swatches</string>
+    <string name="HueSilder1Text">Select starting Central Hue</string>
+    <string name="HueSlider2Text">Number of Swatches</string>
+    <string name="HueButtonText">Configure Color Swatches</string>
+    <string name="ValueString">Value Selection</string>
+    <string name="SaturationString">Saturation Selection</string>
+    <string name="HueString">Hue Selection</string>
 
 </resources>

@@ -1,4 +1,4 @@
-package android.silcott.aaron.termproject;
+package android.silcott.aaron.termproject.Fragments;
 
 public class HueSwatchItem {
 
