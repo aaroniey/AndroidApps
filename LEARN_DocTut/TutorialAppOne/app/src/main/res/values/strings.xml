@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TutorialAppOne</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="SendButtonText">Send</string>
+    <string name="Edit_Text_String">Enter a Message</string>
+</resources>
