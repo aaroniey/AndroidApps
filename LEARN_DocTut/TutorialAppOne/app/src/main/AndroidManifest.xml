@@ -24,6 +24,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="silkysmooth.tutorialappone.MainActivity" />
         </activity>
+        <activity
+            android:name=".OptionActivities.SettingActivity"
+            android:label="@string/title_activity_settings_message"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="silkysmooth.tutorialappone.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
